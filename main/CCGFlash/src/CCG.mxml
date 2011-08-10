@@ -2,7 +2,32 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600">
+
+	<fx:Script>
+		<![CDATA[	
+			import Configuration;
+			
+			[Bindable]
+			private var inputName:String;
+			
+			[Bindable]
+			private var outputValue:String;
+			
+			protected function submitBtn_clickHandler(event:MouseEvent):void
+			{	
+				//AppConfig.GetAppConfigInstance();
+				//outputValue=AppConfig.GetAppSettings(inputName);
+			}
+		]]>
+	</fx:Script>
+
 	<fx:Declarations>
 		<!-- 将非可视元素（例如服务、值对象）放在此处 -->
 	</fx:Declarations>
+	<s:Label x="54" y="61" text="请输入appConfig文件中对应的Key" id="keyLable" fontWeight="normal" fontFamily="Arial" fontSize="14"/>
+	<s:Label x="270" y="24" text="AS3读取XML配置文件POC" id="titleLable" fontSize="14"/>
+	<s:TextInput x="288" y="57" fontSize="14" width="231" id="keyInputTxt" text="{inputName}"/>
+	<s:Label x="54" y="102" text="对应的value值为" id="valueLable" fontSize="14"/>
+	<s:Label x="187" y="104" id="valueOutputLable" fontSize="14" chromeColor="#F90707" text="{outputValue}"/>
+	<s:Button x="270" y="160" label="确认" id="submitBtn" fontSize="14" click="submitBtn_clickHandler(event)"/>
 </s:Application>
